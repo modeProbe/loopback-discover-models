@@ -48,7 +48,7 @@ function main(options) {
         dataSource,
         discoveryOptions = {
             owner: options.owner,
-            relations: options.relations !== 'false',
+            relations: options.relations !== 'true',
             all: options.allOwners !== 'false',
             views: options.views !== 'false'
         };
@@ -93,7 +93,7 @@ function main(options) {
             var callCnt = models.length;
 
             models.forEach(function (def) {
-                dataSource.discoverSchema(def.name, { owner: discoveryOptions.owner }, function (err, schema) {
+                dataSource.discoverSchema(def.name, { owner: discoveryOptions.owner , relations: discoveryOptions.relations }, function (err, schema) {
                     if (err) {
                         cli.fatal(err);
                     }
