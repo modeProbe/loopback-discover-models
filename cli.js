@@ -93,7 +93,7 @@ function main(options) {
             var callCnt = models.length;
 
             models.forEach(function (def) {
-                dataSource.discoverSchema(def.name, { owner: discoveryOptions.owner , relations: discoveryOptions.relations }, function (err, schema) {
+                dataSource.discoverSchema(def.name, { owner: discoveryOptions.owner , associations: discoveryOptions.relations }, function (err, schema) {
                     if (err) {
                         cli.fatal(err);
                     }
